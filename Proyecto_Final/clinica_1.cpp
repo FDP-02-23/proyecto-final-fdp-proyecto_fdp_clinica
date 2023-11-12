@@ -1,9 +1,33 @@
 #include <iostream>
+#include <fstream>
+#include <string.h>
+#include <cstring>
+#include <conio.h>
 using namespace std;
 
-int main(){
-    int opcion_admin=0, admin_farmacia=0;
+struct DatosCita{
+    string nombre;
+    int especialidad;
+    int edad;
+    int telefono;
+    int mes;
+    int dia;
+    float hora;
+};
 
+int main(){
+
+    //archivo para citas
+    string linea;
+    string archivo_cita = "lista_cita.txt";
+    ofstream archivo;
+    ifstream archivo_lectura;
+
+    //estructura para citas
+    DatosCita cita;
+    
+    int opcion_admin=0, admin_farmacia=0;
+    
     // MENU DE ADMINISTRADOR //
     do{
         cout<<"Menu de Administrador\n\n";
@@ -18,14 +42,24 @@ int main(){
         switch(opcion_admin){
             case 1:             //OPCION - CONSULTAR CITAS//
             {
-                cout<<"Mostrando citas recientes:\n";
-                //codigo para mostrar citas...
+                cout<<"- Mostrando citas -\n\n";
+                archivo_lectura.open(archivo_cita.c_str());
 
+                if(archivo_lectura.is_open()){  //Verifica si el archivo se ha abierto correctamente
+                    while(getline(archivo_lectura, linea)){
+                    cout<<linea<<endl;
+                    }
+                    archivo_lectura.close();
+                } else {
+                    cout<<"Error al abrir el archivo.\n";
+                }
+                cout<<"Presione cualquier tecla para salir."; getch();
+                cout<<"\n";
                 break;
             }
             case 2:             //OPCION - EDITAR FARMACIA//
             {
-                cout<<"Editando farmacia:\n";
+                cout<<"- Editando farmacia -\n";
                 //imprimir lista de medicamentos...
                 cout<<"Seleccionar medicamento a editar: "; 
 
@@ -33,7 +67,7 @@ int main(){
             }
             case 3:             //OPCION - EDITAR ESPECIALIDADES//
             {
-                cout<<"Editando especialidades:\n";
+                cout<<"- Editando especialidades -\n";
                 //imprimir lista de especialidades...
                 cout<<"Seleccionar especialidad a editar: ";
 
@@ -41,7 +75,7 @@ int main(){
             }
             case 4:             //OPCION - EDITAR INFORMACION//
             {
-                cout<<"Editando informacion:\n";
+                cout<<"- Editando informacion -\n";
                 //imprimir informacion...
                 cout<<"Seleccionar informacion a editar: ";
 
@@ -59,7 +93,7 @@ int main(){
             }
             default:
             {
-                cout<<"El numero ingresado no es valido. Intente otra vez.\n"; break;
+                cout<<"La opcion ingresada no es valida. Intente otra vez.\n"; break;
             }
         }
 
