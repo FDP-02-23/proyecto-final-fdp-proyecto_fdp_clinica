@@ -17,17 +17,23 @@ struct DatosCita{
 
 int main(){
 
-    //archivo para citas
+        //archivo para citas
     string linea;
     string archivo_cita = "lista_cita.txt";
     ofstream archivo;
     ifstream archivo_lectura;
-
-    //estructura para citas
+        //estructura para citas
     DatosCita cita;
+        //datos especialidades
+    string med_gen, pedi, ortoped, fisio, med_gen_horario, pedi_horario, ortoped_horario, fisio_horario;
+        //menus
+    int opcion_admin=0, admin_farmacia=0, admin_especialidad=0;
+    int admin_esp_editar=0;
     
-    int opcion_admin=0, admin_farmacia=0;
-    
+    med_gen = "Descripcion de medicina general"; pedi = "Descripcion de pediatria"; ortoped = "Descripcion de ortopedia"; fisio = "Descripcion de fisioterapia";
+    med_gen_horario = "lunes a sabado - 8:00 a 17:00"; pedi_horario = "lunes a viernes - 9:00 a 17:00";
+    ortoped_horario = "lunes a viernes - 9:00 a 15:00"; fisio_horario = "lunes a sabado - 8:00 a 17:00";
+
     // MENU DE ADMINISTRADOR //
     do{
         cout<<"Menu de Administrador\n\n";
@@ -38,6 +44,7 @@ int main(){
         cout<<"5. Regresar al menu principal\n";
         cout<<"6. Salir\n\n";
         cout<<"Seleccionar opcion: "; cin>>opcion_admin;
+        system("cls");
 
         switch(opcion_admin){
             case 1:             //OPCION - CONSULTAR CITAS//
@@ -54,7 +61,7 @@ int main(){
                     cout<<"Error al abrir el archivo.\n";
                 }
                 cout<<"Presione cualquier tecla para salir."; getch();
-                cout<<"\n";
+                system("cls");
                 break;
             }
             case 2:             //OPCION - EDITAR FARMACIA//
@@ -67,10 +74,30 @@ int main(){
             }
             case 3:             //OPCION - EDITAR ESPECIALIDADES//
             {
-                cout<<"- Editando especialidades -\n";
-                //imprimir lista de especialidades...
-                cout<<"Seleccionar especialidad a editar: ";
-
+                do{
+                    cout<<"- Editando especialidades -\n\n";
+                    cout<<"1. Medicina General\n   "<<med_gen<<"\n   "<<med_gen_horario<<"\n\n";
+                    cout<<"2. Fisioterapia\n   "<<fisio<<"\n   "<<fisio_horario<<"\n\n";
+                    cout<<"3. Ortopedia\n   "<<ortoped<<"\n   "<<ortoped_horario<<"\n\n";
+                    cout<<"4. Pediatria\n   "<<pedi<<"\n   "<<pedi_horario<<"\n\n";
+                    cout<<"5. Regresar\n\n";
+                    cout<<"Seleccionar especialidad a editar: "; cin>>admin_especialidad;
+                    switch(admin_especialidad){
+                        case 1 ... 4:
+                        {
+                            cout<<"Que desea editar?\n   1. Descripcion\n   2. Horario \n\nSeleccionar opcion: "; cin>>admin_esp_editar;
+                        }
+                        case 5:
+                        {
+                            break;
+                        }
+                        default:
+                        {
+                            cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                        }
+                    }
+                }while(admin_especialidad != 5);
+                system("cls");
                 break;
             }
             case 4:             //OPCION - EDITAR INFORMACION//
@@ -93,11 +120,11 @@ int main(){
             }
             default:
             {
-                cout<<"La opcion ingresada no es valida. Intente otra vez.\n"; break;
+                cout<<"Opcion no valida. Intente otra vez.\n"; break;
             }
         }
 
-    }while((opcion_admin != 5) || (opcion_admin != 6)); //no volver a mostrar el menu si la opcion es 5 o 6
+    }while(opcion_admin != 6);
       
     return 0;
 }
