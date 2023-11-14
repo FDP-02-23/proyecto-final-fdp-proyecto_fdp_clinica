@@ -28,7 +28,6 @@ int main(){
     string med_gen, pedi, ortoped, fisio, med_gen_horario, pedi_horario, ortoped_horario, fisio_horario;
         //menus
     int opcion_admin=0, admin_farmacia=0, admin_especialidad=0;
-    int admin_esp_editar=0;
     
     med_gen = "Descripcion de medicina general"; pedi = "Descripcion de pediatria"; ortoped = "Descripcion de ortopedia"; fisio = "Descripcion de fisioterapia";
     med_gen_horario = "lunes a sabado - 8:00 a 17:00"; pedi_horario = "lunes a viernes - 9:00 a 17:00";
@@ -44,7 +43,7 @@ int main(){
         cout<<"5. Regresar al menu principal\n";
         cout<<"6. Salir\n\n";
         cout<<"Seleccionar opcion: "; cin>>opcion_admin;
-        system("cls");
+        cin.ignore(); system("cls");
 
         switch(opcion_admin){
             case 1:             //OPCION - CONSULTAR CITAS//
@@ -81,11 +80,70 @@ int main(){
                     cout<<"3. Ortopedia\n   "<<ortoped<<"\n   "<<ortoped_horario<<"\n\n";
                     cout<<"4. Pediatria\n   "<<pedi<<"\n   "<<pedi_horario<<"\n\n";
                     cout<<"5. Regresar\n\n";
-                    cout<<"Seleccionar especialidad a editar: "; cin>>admin_especialidad;
-                    switch(admin_especialidad){
+                    cout<<"Seleccionar especialidad a editar: "; cin>>opcion_admin;
+                    cin.ignore(); system("cls");
+
+                    switch(opcion_admin){
                         case 1 ... 4:
                         {
-                            cout<<"Que desea editar?\n   1. Descripcion\n   2. Horario \n\nSeleccionar opcion: "; cin>>admin_esp_editar;
+                            cout<<"Que desea editar?\n   1. Descripcion\n   2. Horario \n\nSeleccionar opcion: "; cin>>admin_especialidad;
+                            cin.ignore(); system("cls");
+
+                            if(admin_especialidad == 1){            //Editar Descripcion
+                                
+                                cout<<"Descripcion actual: ";
+                                switch(opcion_admin){
+                                    case 1: {    //Medicina General
+                                        cout<<med_gen<<"\n\nNueva descripcion: "; getline(cin, med_gen);
+                                        system("cls"); break;
+                                    }
+                                    case 2: {    //Fisioterapia
+                                        cout<<fisio<<"\n\nNueva descripcion: "; getline(cin, fisio);
+                                        system("cls"); break;
+                                    }
+                                    case 3: {    //Ortopedia
+                                        cout<<ortoped<<"\n\nNueva descripcion: "; getline(cin, ortoped); 
+                                        system("cls"); break;
+                                    }
+                                    case 4: {    //Pediatria
+                                        cout<<pedi<<"\n\nNueva descripcion: "; getline(cin, pedi); 
+                                        system("cls"); break;
+                                    }
+                                    default: {
+                                        system("cls");
+                                        cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                                    }
+                                }
+                            } else if(admin_especialidad == 2){     //Editar Horario
+                                
+                                cout<<"Horario actual: ";
+                                switch(opcion_admin){
+                                    case 1: {    //Medicina General
+                                        cout<<med_gen_horario<<"\n\nNuevo horario: "; getline(cin, med_gen_horario);
+                                        system("cls"); break;
+                                    }
+                                    case 2: {    //Fisioterapia
+                                        cout<<fisio_horario<<"\n\nNuevo horario: "; getline(cin, fisio_horario);
+                                        system("cls"); break;
+                                    }
+                                    case 3: {    //Ortopedia
+                                        cout<<ortoped_horario<<"\n\nNuevo horario: "; getline(cin, ortoped_horario); 
+                                        system("cls"); break;
+                                    }
+                                    case 4: {    //Pediatria
+                                        cout<<pedi_horario<<"\n\nNuevo horario: "; getline(cin, pedi_horario); 
+                                        system("cls"); break;
+                                    }
+                                    default: {
+                                        system("cls");
+                                        cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                                    }
+                                }
+                            } else {
+                                system("cls");
+                                cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                            }
+                            break;
                         }
                         case 5:
                         {
@@ -93,12 +151,13 @@ int main(){
                         }
                         default:
                         {
+                            system("cls");
                             cout<<"Opcion no valida. Intente otra vez.\n"; break;
                         }
                     }
-                }while(admin_especialidad != 5);
-                system("cls");
-                break;
+                }while(opcion_admin != 5);
+                opcion_admin = 0;
+                system("cls"); break;
             }
             case 4:             //OPCION - EDITAR INFORMACION//
             {
