@@ -243,30 +243,19 @@ int main()
                         }
                     } while (opcion_especialidad != 5);
                 case 3:
-                    archivo.open(archivo_farmacia.c_str(), fstream::app);
                     for (int i = 0; i < 5; i++)
                     {
-                        archivo << "Nombre del medicamento: " << farmacia_med[i] << " " << endl;
-                        archivo << farmacia_present[i] << " " << endl;
-                        archivo << "$" << farmacia_precio[i] << " " << endl;
-                        archivo << "cantidad en stock: " << cantidad_med[i] << endl
+                        cout<< "Nombre del medicamento: " << farmacia_med[i] << " " << endl;
+                        cout << farmacia_present[i] << " " << endl;
+                        cout << "$" << farmacia_precio[i] << " " << endl;
+                        cout << "cantidad en stock: " << cantidad_med[i] << endl
                                 << endl;
-                    }
-
-                    if (archivo.is_open())
-                    {
-                        while (getline(archivo_lectura, linea))
-                        {
-                            cout << linea << endl;
-                        }
-                        archivo.close();
-                    }
-                    else
-                    {
-                        cout << "Error al abrir el archivo." << endl;
                     }
                     break;
                 case 4:
+                cout<<"Direccion: Calle las Oscuranas, Colonia miramonte, San Salvador."<<endl;
+                cout<<"Numero de contacto: 2255-6344 "<<" 7546-8454"<<endl;
+                cout<<"Horarios de atencion: lunes a sábado - 8:00 a 17:00"<<endl;
                     break;
                 case 5:
                     usuario = 6;
