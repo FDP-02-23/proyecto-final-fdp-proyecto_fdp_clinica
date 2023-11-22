@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <string.h>
 #include <cstring>
@@ -15,6 +16,12 @@ struct DatosCita{
     float hora;
 };
 
+struct MasInformacion{
+    string direccion;
+    string contacto;
+    string horario;
+};
+
 int main(){
 
         //archivo para citas
@@ -22,8 +29,9 @@ int main(){
     string archivo_cita = "lista_cita.txt";
     ofstream archivo;
     ifstream archivo_lectura;
-        //estructura para citas
+        //estructuras
     DatosCita cita;
+    MasInformacion informacion;
         //datos especialidades
     string med_gen, pedi, ortoped, fisio, med_gen_horario, pedi_horario, ortoped_horario, fisio_horario;
         //menus
@@ -32,7 +40,10 @@ int main(){
     med_gen = "Descripcion de medicina general"; pedi = "Descripcion de pediatria"; ortoped = "Descripcion de ortopedia"; fisio = "Descripcion de fisioterapia";
     med_gen_horario = "lunes a sabado - 8:00 a 17:00"; pedi_horario = "lunes a viernes - 9:00 a 17:00";
     ortoped_horario = "lunes a viernes - 9:00 a 15:00"; fisio_horario = "lunes a sabado - 8:00 a 17:00";
-
+    informacion.direccion = "Calle las Oscuranas, Colonia Miramonte, San Salvador";
+    informacion.contacto = "2255-6344 y 7546-8454";
+    informacion.horario = "lunes a sabado - 8:00 a 17:00";
+    
     // MENU DE ADMINISTRADOR //
     do{
         cout<<"Menu de Administrador\n\n";
@@ -161,11 +172,42 @@ int main(){
             }
             case 4:             //OPCION - EDITAR INFORMACION//
             {
-                cout<<"- Editando informacion -\n";
-                //imprimir informacion...
-                cout<<"Seleccionar informacion a editar: ";
+                do{
+                    cout<<"- Editando informacion -\n\n";
+                    cout<<"1. Direccion: "<<informacion.direccion<<"\n";
+                    cout<<"2. Contacto:  "<<informacion.contacto<<"\n";
+                    cout<<"3. Horario:   "<<informacion.horario<<"\n";
+                    cout<<"4. Regresar\n\n";
+                    cout<<"Seleccionar informacion a editar: "; cin>>opcion_admin;
+                    cin.ignore(); system("cls");
 
-                break;
+                    switch(opcion_admin){
+                        case 1: {
+                            cout<<"Direccion actual: "<<informacion.direccion<<"\n\n";
+                            cout<<"Nueva direccion: "; getline(cin, informacion.direccion);
+                            system("cls"); break;
+                        }
+                        case 2: {
+                            cout<<"Contacto actual: "<<informacion.contacto<<"\n\n";
+                            cout<<"Nuevo contacto: "; getline(cin, informacion.contacto);
+                            system("cls"); break;
+                        }
+                        case 3: {
+                            cout<<"Horario actual: "<<informacion.horario<<"\n\n";
+                            cout<<"Nuevo horario: "; getline(cin, informacion.horario);
+                            system("cls"); break;
+                        }
+                        case 4: {
+                            break;
+                        }
+                        default: {
+                            system("cls");
+                            cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                        }
+                    }
+                }while(opcion_admin != 4);
+                opcion_admin = 0;
+                system("cls"); break;
             }
             case 5:             //REGRESAR AL MENU PRINCIPAL//
             {
