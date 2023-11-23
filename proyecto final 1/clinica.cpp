@@ -38,11 +38,14 @@ struct DatosCita
 
 int main()
 {
-    // igualando las variables para la descripcion de las especialidades que forman parte de la clinica
-    med_gen = "Es el nivel de atencion medica principal, la cual es importante para la deteccion, tratamiento y prevención de las enfermedades cronicas.";
-    pedi = "incluye la Patologia Medicoquirurgica y de especialidades que presentan pacientes en las diferentes edades pediatricas desde el nacimiento hasta el termino del crecimiento y desarrollo que, en promedio, se alcanza entre los 18 y 20 años de edad.";
-    ortoped = "Se especializan en el cuidado de trastornos de los huesos, musculos, tendones y ligamentos.";
-    fisio = "Es una especialidad medica que tiene por objeto la valoracion, diagnostico, prevencion y tratamiento de las discapacidades derivadas de enfermedades y accidentes, utilizando para ellos todos los metodos a su alcance (fisicos, medicamentosos, educacionales.)";
+    // Agregando un arreglo para guardar las descripciones de las especialidades que forman parte de la clinica
+
+    string especialidades [4];
+
+    especialidades [0] = "Es el nivel de atencion medica principal, la cual es importante para la deteccion, tratamiento y prevención de las enfermedades cronicas.";
+    especialidades [1] = "incluye la Patologia Medicoquirurgica y de especialidades que presentan pacientes en las diferentes edades pediatricas desde el nacimiento hasta el termino del crecimiento y desarrollo que, en promedio, se alcanza entre los 18 y 20 años de edad.";
+    especialidades [2] = "Se especializan en el cuidado de trastornos de los huesos, musculos, tendones y ligamentos.";
+    especialidades [3] = "Es una especialidad medica que tiene por objeto la valoracion, diagnostico, prevencion y tratamiento de las discapacidades derivadas de enfermedades y accidentes, utilizando para ellos todos los metodos a su alcance (fisicos, medicamentosos, educacionales.)";
 
     // archivo para citas
     string linea;
@@ -211,25 +214,25 @@ int main()
                         {
                         case 1:
                             cout << "Medicina General: ";
-                            cout << med_gen << endl;
+                            cout << especialidades [0] << endl;
                             cout << "Horario de atencion: lunes a sabado - 8:00 a 17:00" << endl
                                  << endl;
                             break;
                         case 2:
                             cout << "Fisioterapia: ";
-                            cout << fisio << endl;
+                            cout << especialidades [1] << endl;
                             cout << "Horario de atencion: lunes a viernes - 9:00 a 17:00" << endl
                                  << endl;
                             break;
                         case 3:
                             cout << "Ortopeda: ";
-                            cout << ortoped << endl;
+                            cout << especialidades [2] << endl;
                             cout << "Horario de atencion: lunes a viernes - 9:00 a 15:00" << endl
                                  << endl;
                             break;
                         case 4:
                             cout << "Pediatria: ";
-                            cout << pedi << endl;
+                            cout << especialidades [3] << endl;
                             cout << "Horario de atencion: lunes a sabado - 8:00 a 17:00" << endl
                                  << endl;
                             break;
@@ -254,7 +257,7 @@ int main()
                     break;
                 case 4:
                 cout<<"Direccion: Calle las Oscuranas, Colonia miramonte, San Salvador."<<endl;
-                cout<<"Numero de contacto: 2255-6344 "<<" 7546-8454"<<endl;
+                cout<<"Numero de contacto: 2255-6344" <<" 7546-8454"<<endl;
                 cout<<"Horarios de atencion: lunes a sábado - 8:00 a 17:00"<<endl;
                     break;
                 case 5:
