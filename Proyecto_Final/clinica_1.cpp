@@ -27,22 +27,28 @@ int main(){
         //archivo para citas
     string linea;
     string archivo_cita = "lista_cita.txt";
-    ofstream archivo;
-    ifstream archivo_lectura;
-        //estructuras
+    ofstream archivo; ifstream archivo_lectura;
     DatosCita cita;
-    MasInformacion informacion;
+        //datos farmacia
+    string farmacia_med[5] = {"Ibuprofeno", "Ciproxil", "Amoxicilina", "Fosfocil", "Afrin"};
+    string farmacia_present[5] = {"120 ml", "500 mg tableta", "500 mg capsula", "120 ml", "15 ml"};
+    float farmacia_precio[5] = {5.50, 1.50, 0.30, 17.00, 8.00};
+    int cantidad_med[5] = {1};
         //datos especialidades
+    string especialidades[4], horarios[4];
+    especialidades[0] = "Descripcion de Medicina General"; horarios[0] = "lunes a sabado - 8:00 a 17:00";
+    especialidades[1] = "Descripcion de Pediatria"; horarios[1] = "lunes a viernes - 9:00 a 17:00";
+    especialidades[2] = "Descripcion de Ortopedia"; horarios[2] = "lunes a viernes - 9:00 a 15:00";
+    especialidades[3] = "Descripcion de Fisioterapia"; horarios[3] = "lunes a sabado - 8:00 a 17:00";
     string med_gen, pedi, ortoped, fisio, med_gen_horario, pedi_horario, ortoped_horario, fisio_horario;
-        //menus
-    int opcion_admin=0, admin_farmacia=0, admin_especialidad=0;
-    
-    med_gen = "Descripcion de medicina general"; pedi = "Descripcion de pediatria"; ortoped = "Descripcion de ortopedia"; fisio = "Descripcion de fisioterapia";
-    med_gen_horario = "lunes a sabado - 8:00 a 17:00"; pedi_horario = "lunes a viernes - 9:00 a 17:00";
-    ortoped_horario = "lunes a viernes - 9:00 a 15:00"; fisio_horario = "lunes a sabado - 8:00 a 17:00";
+        //mas informacion
+    MasInformacion informacion;
     informacion.direccion = "Calle las Oscuranas, Colonia Miramonte, San Salvador";
     informacion.contacto = "2255-6344 y 7546-8454";
     informacion.horario = "lunes a sabado - 8:00 a 17:00";
+        //menus
+    int opcion_admin=0, admin_farmacia=0, admin_especialidad=0;
+    
     
     // MENU DE ADMINISTRADOR //
     do{
