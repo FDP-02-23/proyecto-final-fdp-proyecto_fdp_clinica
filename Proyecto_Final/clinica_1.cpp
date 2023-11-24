@@ -33,13 +33,13 @@ int main(){
     string farmacia_med[5] = {"Ibuprofeno", "Ciproxil", "Amoxicilina", "Fosfocil", "Afrin"};
     string farmacia_present[5] = {"120 ml", "500 mg tableta", "500 mg capsula", "120 ml", "15 ml"};
     float farmacia_precio[5] = {5.50, 1.50, 0.30, 17.00, 8.00};
-    int cantidad_med[5] = {1};
+    int cantidad_med[5] = {1, 1, 1, 1, 1};
         //datos especialidades
     string especialidades[4], horarios[4];
     especialidades[0] = "Descripcion de Medicina General";  horarios[0] = "lunes a sabado - 8:00 a 17:00";
-    especialidades[1] = "Descripcion de Fisioterapia";         horarios[1] = "lunes a viernes - 9:00 a 17:00";
+    especialidades[1] = "Descripcion de Fisioterapia";      horarios[1] = "lunes a viernes - 9:00 a 17:00";
     especialidades[2] = "Descripcion de Ortopedia";         horarios[2] = "lunes a viernes - 9:00 a 15:00";
-    especialidades[3] = "Descripcion de Pediatria";      horarios[3] = "lunes a sabado - 8:00 a 17:00";
+    especialidades[3] = "Descripcion de Pediatria";         horarios[3] = "lunes a sabado - 8:00 a 17:00";
         //mas informacion
     MasInformacion informacion;
     informacion.direccion = "Calle las Oscuranas, Colonia Miramonte, San Salvador";
@@ -76,16 +76,23 @@ int main(){
                     cout<<"Error al abrir el archivo.\n";
                 }
                 cout<<"Presione cualquier tecla para salir."; getch();
-                system("cls");
-                break;
+                system("cls"); break;
             }
             case 2:             //OPCION - EDITAR FARMACIA//
             {
-                cout<<"- Editando farmacia -\n";
-                //imprimir lista de medicamentos...
-                cout<<"Seleccionar medicamento a editar: "; 
+                do{
+                    cout<<"- Editando farmacia -\n\n";
+                    for(int i = 0; i < 5; i++){
+                        cout<<i + 1<<". ";
+                        cout<<farmacia_med[i]<<" - "<<farmacia_present[i]<<"\n   $ "<<farmacia_precio[i]<<"\n   Cantidad: "<<cantidad_med[i]<<"\n\n";
+                    }
+                    cout<<"6. Regresar\n\n";
+                    cout<<"Seleccionar medicamento a editar: "; cin>>opcion_admin;
+                    cin.ignore(); system("cls");
 
-                break;
+                }while(opcion_admin != 6);
+                opcion_admin = 0;
+                system("cls"); break;
             }
             case 3:             //OPCION - EDITAR ESPECIALIDADES//
             {
