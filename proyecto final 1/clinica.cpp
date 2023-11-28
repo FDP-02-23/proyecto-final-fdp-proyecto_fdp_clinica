@@ -9,14 +9,15 @@ using namespace std;
 // Declaracion de las variables principales
 int opcion, usuario, opcion_especialidad;
 string med_gen, pedi, ortoped, fisio;
+string num_celular = "7546-8554", num_fijo = "2255-6344";
 
 // Funcion para desplegar la informacion de la clinica
 void inf_clinica()
 {
     cout << "Direccion: Calle las Oscuranas, Colonia miramonte, San Salvador." << endl;
-    cout << "Numero de contacto: 2255-6344"
-         << " 7546-8454" << endl;
-    cout << "Horarios de atencion: lunes a sábado - 8:00 a 17:00" << endl;
+    cout << "Numeros de contacto: " <<num_celular
+         << ", "<<num_fijo << endl;
+    cout << "Horarios de atencion: lunes a sabado - 8:00 a 17:00" << endl;
 }
 
 // Funcion para desplegar el menu de las opciones para realizar por parte del usuario
@@ -280,6 +281,7 @@ int main()
                     break;
                 case 4:
                     inf_clinica();
+                    break;
                 case 5:
                     system("cls");
                     usuario = 6;
