@@ -90,6 +90,43 @@ int main(){
                     cout<<"Seleccionar medicamento a editar: "; cin>>opcion_admin;
                     cin.ignore(); system("cls");
 
+                    switch(opcion_admin){
+                        case 1 ... 5: {
+                            cout<<"Que desea editar?\n  1. Presentacion\n  2. Precio\n  3. Cantidad \n\nSeleccionar opcion: "; 
+                            cin>>admin_farmacia;
+                            cin.ignore(); system("cls");
+
+                            switch(admin_farmacia){
+                                case 1: {               //Editar Presentacion
+                                    cout<<"Presentacion actual: "<<farmacia_present[opcion_admin - 1]<<"\n\n";
+                                    cout<<"Nueva presentacion: "; getline(cin, farmacia_present[opcion_admin - 1]);
+                                    system("cls"); break;
+                                }
+                                case 2: {               //Editar Precio
+                                    cout<<"Precio actual: $"<<farmacia_precio[opcion_admin - 1]<<"\n\n";
+                                    cout<<"Nuevo precio: $"; cin>>farmacia_precio[opcion_admin - 1];
+                                    cin.ignore(); system("cls"); break;
+                                }
+                                case 3: {               //Editar Cantidad
+                                    cout<<"Cantidad actual: "<<cantidad_med[opcion_admin - 1]<<"\n\n";
+                                    cout<<"Nueva cantidad: "; cin>>cantidad_med[opcion_admin - 1];
+                                    cin.ignore(); system("cls"); break;
+                                }
+                                default: {
+                                    system("cls");
+                                    cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                                }
+                            }
+                            break;
+                        }
+                        case 6: {
+                            break;
+                        }
+                        default: {
+                            system("cls");
+                            cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                        }
+                    }
                 }while(opcion_admin != 6);
                 opcion_admin = 0;
                 system("cls"); break;
@@ -108,24 +145,25 @@ int main(){
 
                     switch(opcion_admin){
                         case 1 ... 4: {
-                            cout<<"Que desea editar?\n   1. Descripcion\n   2. Horario \n\nSeleccionar opcion: "; cin>>admin_especialidad;
+                            cout<<"Que desea editar?\n   1. Descripcion\n   2. Horario \n\nSeleccionar opcion: "; 
+                            cin>>admin_especialidad;
                             cin.ignore(); system("cls");
 
-                            if(admin_especialidad == 1){            //Editar Descripcion
-                                
-                                cout<<"Descripcion actual: "<<especialidades[opcion_admin - 1]<<"\n\n";
-                                cout<<"Nueva descripcion: "; getline(cin, especialidades[opcion_admin - 1]);
-                                system("cls");
-                                
-                            } else if(admin_especialidad == 2){     //Editar Horario
-                                
-                                cout<<"Horario actual: "<<horarios[opcion_admin - 1]<<"\n\n";
-                                cout<<"Nuevo horario: "; getline(cin, horarios[opcion_admin - 1]);
-                                system("cls");
-                               
-                            } else {
-                                system("cls");
-                                cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                            switch(admin_especialidad){
+                                case 1: {               //Editar Descripcion
+                                    cout<<"Descripcion actual: "<<especialidades[opcion_admin - 1]<<"\n\n";
+                                    cout<<"Nueva descripcion: "; getline(cin, especialidades[opcion_admin - 1]);
+                                    system("cls"); break;
+                                }
+                                case 2: {               //Editar Horario
+                                    cout<<"Horario actual: "<<horarios[opcion_admin - 1]<<"\n\n";
+                                    cout<<"Nuevo horario: "; getline(cin, horarios[opcion_admin - 1]);
+                                    system("cls"); break;
+                                }
+                                default: {
+                                    system("cls");
+                                    cout<<"Opcion no valida. Intente otra vez.\n"; break;
+                                }
                             }
                             break;
                         }
