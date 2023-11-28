@@ -259,6 +259,7 @@ int main()
                             break;
                         case 5:
                             opcion_especialidad = 5;
+                            system("cls");
                             break;
 
                         default:
@@ -266,6 +267,7 @@ int main()
                             break;
                         }
                     } while (opcion_especialidad != 5);
+                    break;
                 case 3:
                     for (int i = 0; i < 5; i++)
                     {
@@ -279,6 +281,7 @@ int main()
                 case 4:
                     inf_clinica();
                 case 5:
+                    system("cls");
                     usuario = 6;
                     break;
                 case 6:
