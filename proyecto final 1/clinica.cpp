@@ -10,6 +10,39 @@ using namespace std;
 int opcion, usuario, opcion_especialidad;
 string med_gen, pedi, ortoped, fisio;
 
+// Funcion para desplegar la informacion de la clinica
+void inf_clinica()
+{
+    cout << "Direccion: Calle las Oscuranas, Colonia miramonte, San Salvador." << endl;
+    cout << "Numero de contacto: 2255-6344"
+         << " 7546-8454" << endl;
+    cout << "Horarios de atencion: lunes a sábado - 8:00 a 17:00" << endl;
+}
+
+// Funcion para desplegar el menu de las opciones para realizar por parte del usuario
+void menu_usuario()
+{
+    cout << "Que desea realizar?" << endl
+         << endl
+         << "1. Hacer una cita" << endl
+         << "2. Conocer las especialidades" << endl
+         << "3. Visitar farmacia" << endl
+         << "4. Mas informacion" << endl
+         << "5. Regresar al menu principal" << endl
+         << "6. Salir" << endl;
+}
+
+// Funcion para desplegar el menu de las especialidades que posee la clinica
+void menu_espec()
+{
+    cout << "     -----Las especialidades con las que dispone nuestra clinica son-----        " << endl
+         << "1.Medicina General" << endl
+         << "2.Fisioterapia" << endl
+         << "3.Ortopeda" << endl
+         << "4.Pedriatria" << endl
+         << "5.Regresar" << endl;
+}
+
 // Estructura para los datos de la farmacia
 struct DatosFarmacia
 {
@@ -40,12 +73,12 @@ int main()
 {
     // Agregando un arreglo para guardar las descripciones de las especialidades que forman parte de la clinica
 
-    string especialidades [4];
+    string especialidades[4];
 
-    especialidades [0] = "Es el nivel de atencion medica principal, la cual es importante para la deteccion, tratamiento y prevención de las enfermedades cronicas.";
-    especialidades [1] = "incluye la Patologia Medicoquirurgica y de especialidades que presentan pacientes en las diferentes edades pediatricas desde el nacimiento hasta el termino del crecimiento y desarrollo que, en promedio, se alcanza entre los 18 y 20 años de edad.";
-    especialidades [2] = "Se especializan en el cuidado de trastornos de los huesos, musculos, tendones y ligamentos.";
-    especialidades [3] = "Es una especialidad medica que tiene por objeto la valoracion, diagnostico, prevencion y tratamiento de las discapacidades derivadas de enfermedades y accidentes, utilizando para ellos todos los metodos a su alcance (fisicos, medicamentosos, educacionales.)";
+    especialidades[0] = "Es el nivel de atencion medica principal, la cual es importante para la deteccion, tratamiento y prevención de las enfermedades cronicas.";
+    especialidades[1] = "incluye la Patologia Medicoquirurgica y de especialidades que presentan pacientes en las diferentes edades pediatricas desde el nacimiento hasta el termino del crecimiento y desarrollo que, en promedio, se alcanza entre los 18 y 20 años de edad.";
+    especialidades[2] = "Se especializan en el cuidado de trastornos de los huesos, musculos, tendones y ligamentos.";
+    especialidades[3] = "Es una especialidad medica que tiene por objeto la valoracion, diagnostico, prevencion y tratamiento de las discapacidades derivadas de enfermedades y accidentes, utilizando para ellos todos los metodos a su alcance (fisicos, medicamentosos, educacionales.)";
 
     // archivo para citas
     string linea;
@@ -72,14 +105,7 @@ int main()
 
             do
             {
-                cout << "Que desea realizar?" << endl
-                     << endl
-                     << "1. Hacer una cita" << endl
-                     << "2. Conocer las especialidades" << endl
-                     << "3. Visitar farmacia" << endl
-                     << "4. Mas informacion" << endl
-                     << "5. Regresar al menu principal" << endl
-                     << "6. Salir" << endl;
+                menu_usuario();
                 cin >> usuario;
 
                 switch (usuario)
@@ -202,37 +228,32 @@ int main()
                 case 2:
                     do
                     {
-                        cout << "     -----Las especialidades con las que dispone nuestra clinica son-----        " << endl
-                             << "1.Medicina General" << endl
-                             << "2.Fisioterapia" << endl
-                             << "3.Ortopeda" << endl
-                             << "4.Pedriatria" << endl
-                             << "5.Regresar" << endl;
+                        menu_espec();
                         cin >> opcion_especialidad;
 
                         switch (opcion_especialidad)
                         {
                         case 1:
                             cout << "Medicina General: ";
-                            cout << especialidades [0] << endl;
+                            cout << especialidades[0] << endl;
                             cout << "Horario de atencion: lunes a sabado - 8:00 a 17:00" << endl
                                  << endl;
                             break;
                         case 2:
                             cout << "Fisioterapia: ";
-                            cout << especialidades [1] << endl;
+                            cout << especialidades[1] << endl;
                             cout << "Horario de atencion: lunes a viernes - 9:00 a 17:00" << endl
                                  << endl;
                             break;
                         case 3:
                             cout << "Ortopeda: ";
-                            cout << especialidades [2] << endl;
+                            cout << especialidades[2] << endl;
                             cout << "Horario de atencion: lunes a viernes - 9:00 a 15:00" << endl
                                  << endl;
                             break;
                         case 4:
                             cout << "Pediatria: ";
-                            cout << especialidades [3] << endl;
+                            cout << especialidades[3] << endl;
                             cout << "Horario de atencion: lunes a sabado - 8:00 a 17:00" << endl
                                  << endl;
                             break;
@@ -248,18 +269,15 @@ int main()
                 case 3:
                     for (int i = 0; i < 5; i++)
                     {
-                        cout<< "Nombre del medicamento: " << farmacia_med[i] << " " << endl;
+                        cout << "Nombre del medicamento: " << farmacia_med[i] << " " << endl;
                         cout << farmacia_present[i] << " " << endl;
                         cout << "$" << farmacia_precio[i] << " " << endl;
                         cout << "cantidad en stock: " << cantidad_med[i] << endl
-                                << endl;
+                             << endl;
                     }
                     break;
                 case 4:
-                cout<<"Direccion: Calle las Oscuranas, Colonia miramonte, San Salvador."<<endl;
-                cout<<"Numero de contacto: 2255-6344" <<" 7546-8454"<<endl;
-                cout<<"Horarios de atencion: lunes a sábado - 8:00 a 17:00"<<endl;
-                    break;
+                    inf_clinica();
                 case 5:
                     usuario = 6;
                     break;
