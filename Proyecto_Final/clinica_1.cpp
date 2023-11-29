@@ -6,29 +6,31 @@
 #include <conio.h>
 using namespace std;
 
-struct DatosCita{
-    string nombre;
-    int especialidad;
-    int edad;
-    int telefono;
-    int mes;
-    int dia;
-    float hora;
-};
-
 struct MasInformacion{
     string direccion;
     string contacto;
     string horario;
 };
 
+void MostrarCitas(){
+    string linea, archivo_cita = "lista_cita.txt";
+    ofstream archivo;
+    ifstream archivo_lectura;
+
+    archivo_lectura.open(archivo_cita.c_str());
+
+    if(archivo_lectura.is_open()){              //Verifica si el archivo se ha abierto correctamente
+        while(getline(archivo_lectura, linea)){
+        cout<<linea<<endl;                      //Imprimiendo citas
+        }
+        archivo_lectura.close();
+    } else {
+        cout<<"Error al abrir el archivo.\n";
+    }
+}
+
 int main(){
 
-        //archivo para citas
-    string linea;
-    string archivo_cita = "lista_cita.txt";
-    ofstream archivo; ifstream archivo_lectura;
-    DatosCita cita;
         //datos farmacia
     string farmacia_med[5] = {"Ibuprofeno", "Ciproxil", "Amoxicilina", "Fosfocil", "Afrin"};
     string farmacia_present[5] = {"120 ml", "500 mg tableta", "500 mg capsula", "120 ml", "15 ml"};
@@ -65,16 +67,7 @@ int main(){
             case 1:             //OPCION - CONSULTAR CITAS//
             {
                 cout<<"- Mostrando citas -\n\n";
-                archivo_lectura.open(archivo_cita.c_str());
-
-                if(archivo_lectura.is_open()){  //Verifica si el archivo se ha abierto correctamente
-                    while(getline(archivo_lectura, linea)){
-                    cout<<linea<<endl;
-                    }
-                    archivo_lectura.close();
-                } else {
-                    cout<<"Error al abrir el archivo.\n";
-                }
+                MostrarCitas();
                 cout<<"Presione cualquier tecla para salir."; getch();
                 system("cls"); break;
             }
@@ -82,9 +75,11 @@ int main(){
             {
                 do{
                     cout<<"- Editando farmacia -\n\n";
-                    for(int i = 0; i < 5; i++){
+                    for(int i = 0; i < 5; i++){         //Imprimiendo lista de medicamentos
                         cout<<i + 1<<". ";
-                        cout<<farmacia_med[i]<<" - "<<farmacia_present[i]<<"\n   $ "<<farmacia_precio[i]<<"\n   Cantidad: "<<cantidad_med[i]<<"\n\n";
+                        cout<<farmacia_med[i]<<" - "<<farmacia_present[i]<<"\n";
+                        cout<<"   $ "<<farmacia_precio[i]<<"\n";
+                        cout<<"   Cantidad: "<<cantidad_med[i]<<"\n\n";
                     }
                     cout<<"6. Regresar\n\n";
                     cout<<"Seleccionar medicamento a editar: "; cin>>opcion_admin;
@@ -119,10 +114,10 @@ int main(){
                             }
                             break;
                         }
-                        case 6: {
+                        case 6: {   //Regresar
                             break;
                         }
-                        default: {
+                        default: {  //Opcion no valida
                             system("cls");
                             cout<<"Opcion no valida. Intente otra vez.\n"; break;
                         }
@@ -167,10 +162,10 @@ int main(){
                             }
                             break;
                         }
-                        case 5: {
+                        case 5: {   //Regresar
                             break;
                         }
-                        default: {
+                        default: {  //Opcion no valida
                             system("cls");
                             cout<<"Opcion no valida. Intente otra vez.\n"; break;
                         }
@@ -191,25 +186,25 @@ int main(){
                     cin.ignore(); system("cls");
 
                     switch(opcion_admin){
-                        case 1: {
+                        case 1: {           //Editar Direccion
                             cout<<"Direccion actual: "<<informacion.direccion<<"\n\n";
                             cout<<"Nueva direccion: "; getline(cin, informacion.direccion);
                             system("cls"); break;
                         }
-                        case 2: {
+                        case 2: {           //Editar Contacto
                             cout<<"Contacto actual: "<<informacion.contacto<<"\n\n";
                             cout<<"Nuevo contacto: "; getline(cin, informacion.contacto);
                             system("cls"); break;
                         }
-                        case 3: {
+                        case 3: {           //Editar Horario
                             cout<<"Horario actual: "<<informacion.horario<<"\n\n";
                             cout<<"Nuevo horario: "; getline(cin, informacion.horario);
                             system("cls"); break;
                         }
-                        case 4: {
+                        case 4: {   //Regresar
                             break;
                         }
-                        default: {
+                        default: {  //Opcion no valida
                             system("cls");
                             cout<<"Opcion no valida. Intente otra vez.\n"; break;
                         }
