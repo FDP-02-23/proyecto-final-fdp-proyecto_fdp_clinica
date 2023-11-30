@@ -1,0 +1,16 @@
+Paciente: adan
+Especialidad: 1
+Edad del paciente: 22
+Telefono del paciente: 75857174
+Mes: 12
+Dia: 31
+Hora: 11.25
+
+Paciente: Adan
+Especialidad: 4
+Edad del paciente: 9
+Telefono del paciente: 72746103
+Mes: 9
+Dia: 12
+Hora: 12.3
+
