@@ -1,0 +1,16 @@
+Paciente: adan
+Especialidad: 2
+Edad del paciente: 23
+Telefono del paciente: 72737475
+Mes: 12
+Dia: 2
+Hora: 12.2
+
+Paciente: adan
+Especialidad: 2
+Edad del paciente: 23
+Telefono del paciente: 22467274
+Mes: 12
+Dia: 2
+Hora: 12.2
+
