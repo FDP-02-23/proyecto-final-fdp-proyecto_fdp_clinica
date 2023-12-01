@@ -1,0 +1,16 @@
+Paciente: lalal
+Especialidad: 2
+Edad del paciente: 22
+Telefono del paciente: 87857172
+Mes: 12
+Dia: 31
+Hora: 2.3
+
+Paciente: lalala
+Especialidad: 3
+Edad del paciente: 22
+Telefono del paciente: 73747262
+Mes: 5
+Dia: 22
+Hora: 15.3
+
